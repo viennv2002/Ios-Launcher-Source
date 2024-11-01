@@ -6,7 +6,7 @@ import android.os.Looper
 val mainHandler by lazy { Handler(Looper.getMainLooper()) }
 
 fun runOnMainThread(r: () -> Unit) {
-    com.cloudx.ios17.core.runOnThread(com.cloudx.ios17.core.mainHandler, r)
+    runOnThread(mainHandler, r)
 }
 
 fun runOnThread(handler: Handler, r: () -> Unit) {

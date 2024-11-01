@@ -15,14 +15,12 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.cloudx.ios17.R
 import com.cloudx.ios17.core.Utilities
-import com.cloudx.ios17.core.runOnMainThread
 import com.cloudx.ios17.core.safeForEach
 import com.cloudx.ios17.core.utils.SingletonHolder
 import com.cloudx.ios17.core.utils.ensureOnMainThread
 import com.cloudx.ios17.core.utils.useApplicationContext
-import java.util.ArrayList
-import kotlin.math.max
 import timber.log.Timber
+import kotlin.math.max
 
 class BlurWallpaperProvider(val context: Context) {
 
@@ -62,7 +60,7 @@ class BlurWallpaperProvider(val context: Context) {
     private fun getEnabledStatus() = wallpaperManager.wallpaperInfo == null
 
     fun updateAsync() {
-        com.cloudx.ios17.core.Utilities.THREAD_POOL_EXECUTOR.execute(mUpdateRunnable)
+        Utilities.THREAD_POOL_EXECUTOR.execute(mUpdateRunnable)
     }
 
     private fun updateWallpaper() {
@@ -104,7 +102,7 @@ class BlurWallpaperProvider(val context: Context) {
 
         var wallpaper =
             try {
-                com.cloudx.ios17.core.Utilities.drawableToBitmap(wallpaperManager.drawable, true) as Bitmap
+                Utilities.drawableToBitmap(wallpaperManager.drawable, true) as Bitmap
             } catch (e: Exception) {
                 com.cloudx.ios17.core.runOnMainThread {
                     val msg = "Failed: ${e.message}"
@@ -216,7 +214,7 @@ class BlurWallpaperProvider(val context: Context) {
         val background: Bitmap,
         val dock: Bitmap,
         val appGroup: Bitmap,
-        val widget: Bitmap
+        val widget: Bitmap,
     ) {
         fun recycle() {
             background.recycle()

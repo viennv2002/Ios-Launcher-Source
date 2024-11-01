@@ -11,7 +11,7 @@ import com.cloudx.ios17.core.blur.BlurWallpaperProvider
 import com.cloudx.ios17.core.runOnMainThread
 
 class BlurBackgroundView(context: Context, attrs: AttributeSet?) :
-    View(context, attrs), com.cloudx.ios17.core.customviews.Insettable, BlurWallpaperProvider.Listener {
+    View(context, attrs), Insettable, BlurWallpaperProvider.Listener {
 
     private val blurWallpaperProvider by lazy { BlurWallpaperProvider.getInstance(context) }
 

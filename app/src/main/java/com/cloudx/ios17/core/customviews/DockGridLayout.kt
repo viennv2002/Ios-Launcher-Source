@@ -13,7 +13,7 @@ import com.cloudx.ios17.core.utils.OffsetParent
 class DockGridLayout
 @JvmOverloads
 constructor(private val mContext: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
-    GridLayout(mContext, attrs, defStyleAttr), com.cloudx.ios17.core.customviews.Insettable, OffsetParent {
+    GridLayout(mContext, attrs, defStyleAttr), Insettable, OffsetParent {
 
     private val offsetParentDelegate = OffsetParent.OffsetParentDelegate()
 

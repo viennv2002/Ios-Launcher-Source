@@ -38,7 +38,7 @@ fun <T, A> ensureOnMainThread(creator: (A) -> T): (A) -> T {
             creator(it)
         } else {
             try {
-                com.cloudx.ios17.core.executors.MainThreadExecutor().submit(Callable { creator(it) }).get()
+                MainThreadExecutor().submit(Callable { creator(it) }).get()
             } catch (e: InterruptedException) {
                 throw RuntimeException(e)
             } catch (e: ExecutionException) {
