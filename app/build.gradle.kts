@@ -87,19 +87,19 @@ android {
         create("apiQ") {
             dimension = "api"
             minSdk = 27
-            targetSdk = 29
+            targetSdk = 34
         }
 
         create("apiR") {
             dimension = "api"
             minSdk = 27
-            targetSdk = 29
+            targetSdk = 34
         }
 
         create("apiS") {
             dimension = "api"
             minSdk = 27
-            targetSdk = 29
+            targetSdk = 34
         }
     }
 
@@ -150,6 +150,7 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.runtime)
+    //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler)
 
     // Retrofit

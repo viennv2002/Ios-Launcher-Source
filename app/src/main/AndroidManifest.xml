@@ -2,27 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <permission
-        android:name="com.android.launcher.permission.INSTALL_SHORTCUT"
-        android:description="@string/permdesc_install_shortcut"
-        android:label="@string/permlab_install_shortcut"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="dangerous" />
+    <!--    <permission-->
+    <!--        android:name="com.android.launcher.permission.INSTALL_SHORTCUT"-->
+    <!--        android:description="@string/permdesc_install_shortcut"-->
+    <!--        android:label="@string/permlab_install_shortcut"-->
+    <!--        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"-->
+    <!--        android:protectionLevel="dangerous" />-->
 
-    <permission
-        android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"
-        android:description="@string/permdesc_uninstall_shortcut"
-        android:label="@string/permlab_uninstall_shortcut"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="dangerous" />
+    <!--    <permission-->
+    <!--        android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"-->
+    <!--        android:description="@string/permdesc_uninstall_shortcut"-->
+    <!--        android:label="@string/permlab_uninstall_shortcut"-->
+    <!--        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"-->
+    <!--        android:protectionLevel="dangerous" />-->
 
     <!-- General permissions BEGIN-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<!--    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
-<!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!--    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
@@ -59,11 +59,12 @@
         Main launcher activity. When extending only change the name, and keep all the
         attributes and intent filters the same
         -->
-        <activity            android:exported="true"
-
+        <activity
             android:name=".features.launcher.LauncherActivity"
+
             android:clearTaskOnLaunch="true"
             android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:exported="true"
             android:launchMode="singleTask"
             android:resumeWhilePausing="true"
             android:screenOrientation="fullSensor"
@@ -83,7 +84,8 @@
         <activity
             android:name=".features.shortcuts.AddItemActivity"
             android:autoRemoveFromRecents="true"
-            android:excludeFromRecents="true"            android:exported="true"
+            android:excludeFromRecents="true"
+            android:exported="true"
 
             android:label="@string/action_add_to_workspace"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
@@ -121,7 +123,8 @@
 
         <service
             android:name=".features.notification.NotificationService"
-            android:enabled="true"            android:exported="true"
+            android:enabled="true"
+            android:exported="true"
 
             android:label="@string/icon_badging_service_title"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
@@ -138,7 +141,8 @@
         <!-- Intent received used to install shortcuts from other applications -->
         <receiver
             android:name=".features.shortcuts.InstallShortcutReceiver"
-            android:enabled="true"            android:exported="true"
+            android:enabled="true"
+            android:exported="true"
 
             android:permission="com.android.launcher.permission.INSTALL_SHORTCUT">
             <intent-filter>
@@ -149,8 +153,8 @@
         <!-- Intent received used to uninstall shortcuts from other applications -->
         <receiver
             android:name=".features.shortcuts.UninstallShortcutReceiver"
-            android:exported="true"
             android:enabled="true"
+            android:exported="true"
             android:permission="com.android.launcher.permission.UNINSTALL_SHORTCUT">
             <intent-filter>
                 <action android:name="com.android.launcher.action.UNINSTALL_SHORTCUT" />
@@ -177,16 +181,16 @@
             android:name="android.nfc.disable_beam_default"
             android:value="true" />
 
-<!--        <receiver-->
-<!--            android:name="com.cloudx.ios17.features.weather.WeatherAppWidgetProvider"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/weather">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />-->
-<!--            </intent-filter>-->
-<!--            <meta-data-->
-<!--                android:name="android.appwidget.provider"-->
-<!--                android:resource="@xml/weather_appwidget_info" />-->
-<!--        </receiver>-->
+        <!--        <receiver-->
+        <!--            android:name="com.cloudx.ios17.features.weather.WeatherAppWidgetProvider"-->
+        <!--            android:exported="false"-->
+        <!--            android:label="@string/weather">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />-->
+        <!--            </intent-filter>-->
+        <!--            <meta-data-->
+        <!--                android:name="android.appwidget.provider"-->
+        <!--                android:resource="@xml/weather_appwidget_info" />-->
+        <!--        </receiver>-->
     </application>
 </manifest>
